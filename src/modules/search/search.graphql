@@ -1,0 +1,14 @@
+type Query {
+  search(searchInput: SearchInput): [JSON]
+}
+
+#type Subscription {
+#  searchQuery: [JSON]
+#}
+
+input SearchInput {
+  type: String
+  value: String
+  fields: [String]
+  position: String
+}

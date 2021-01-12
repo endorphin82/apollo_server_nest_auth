@@ -1,0 +1,36 @@
+type Query {
+  getRoles: [Role]
+#  role(id: ID!): Role
+}
+
+
+type Mutation {
+  createRole(createRoleInput: RoleInput): Role
+  updateRole(updateRoleInput: RoleInput): Role
+  removeRole(roleId: ID): JSON
+  addPermissionToRole(roleId: Int, permissionId: Int): Role
+}
+
+type Subscription {
+  roleChanged: Role
+}
+
+type Role {
+  id: ID
+  title: String
+  alias: String
+  createdAt: String
+  updatedAt: String
+  users: [User]
+  permissions: [Permission]
+  status: String
+}
+
+input RoleInput {
+  id: ID
+  title: String
+  alias: String
+  permissions: [PermissionInput]
+  createdAt: String
+  updatedAt: String
+}

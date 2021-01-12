@@ -1,0 +1,34 @@
+scalar JSON
+
+type Query {
+  getPermissions: [Permission]
+}
+
+type Mutation {
+  createPermission(createPermissionInput: PermissionInput): Permission
+  updatePermission(updatePermissionInput: PermissionInput): Permission
+  removePermission(permissionId: ID): JSON
+}
+
+type Subscription {
+  permissionChanged: Permission
+}
+
+type Permission {
+  id: ID
+  title: String
+  alias: String
+  conditions: JSON
+  status: String
+  createdAt: String
+  updatedAt: String
+}
+
+input PermissionInput {
+  id: ID
+  title: String
+  alias: String
+  createdAt: String
+  updatedAt: String
+  conditions: JSON
+}
